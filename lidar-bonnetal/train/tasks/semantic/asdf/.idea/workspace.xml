@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c1631a3c-8e10-4894-87ed-e66ed7fac65e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../panoptic/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../panoptic/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1d7GQ9fytgBXUK8Vmn6TvIhtEo2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="asdf" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="asdf" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1631a3c-8e10-4894-87ed-e66ed7fac65e" name="Default Changelist" comment="" />
+      <created>1591768698059</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591768698059</updated>
+      <workItem from="1591768699564" duration="1063000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="160" y="70" key="#Deployment" timestamp="1591769350674">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="160" y="70" key="#Deployment/0.23.1440.824@0.23.1440.824" timestamp="1591769350674" />
+    <state x="355" y="95" key="#Options" timestamp="1591769297211">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="355" y="95" key="#Options/0.23.1440.824@0.23.1440.824" timestamp="1591769297211" />
+    <state x="305" y="68" key="#SSH_Configurations" timestamp="1591768956055">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="305" y="68" key="#SSH_Configurations/0.23.1440.824@0.23.1440.824" timestamp="1591768956055" />
+    <state x="100" y="133" width="1240" height="565" key="DirDiffDialog" timestamp="1591768900989">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="100" y="133" width="1240" height="565" key="DirDiffDialog/0.23.1440.824@0.23.1440.824" timestamp="1591768900989" />
+    <state x="229" y="54" key="SettingsEditor" timestamp="1591769245944">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="229" y="54" key="SettingsEditor/0.23.1440.824@0.23.1440.824" timestamp="1591769245944" />
+    <state x="81" y="130" key="ftp.server.browser" timestamp="1591769345178">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="81" y="130" key="ftp.server.browser/0.23.1440.824@0.23.1440.824" timestamp="1591769345178" />
+  </component>
+</project>

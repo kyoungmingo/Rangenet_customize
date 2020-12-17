@@ -1,0 +1,106 @@
+# This file is covered by the LICENSE file in the root of this project.
+name: "kitti"
+labels: 
+  0 :  "unlabeled"
+  1 :  "building"
+  2 :  "fence"
+  3 :  "other-structure"
+  4 :  "person"
+  5 :  "pole"
+  6 :  "lane-marking"
+  7 :  "road"
+  8 :  "sidewalk"
+  9 :  "vegetation"
+  10:  "car"
+  11:  "wall"
+  12:  "traffic-sign"
+color_map: # rgb
+  0 : [   0,   0,   0]   # "unlabeled"
+  1 : [  70,  70,  70]   # "building"
+  2 : [ 190, 153, 153]   # "fence"
+  3 : [ 250, 170, 160]   # "other-structure"
+  4 : [ 220,  20,  60]   # "person"
+  5 : [ 153, 153, 153]   # "pole"
+  6 : [ 157, 234,  50]   # "lane-marking"
+  7 : [ 128,  64, 128]   # "road"
+  8 : [ 244,  35, 232]   # "sidewalk"
+  9 : [ 107, 142,  35]   # "vegetation"
+  10: [   0,   0, 142]   # "car"
+  11: [ 102, 102, 156]   # "wall"
+  12: [ 220, 220,   0]   # "traffic-sign"
+content: # as a ratio with the total number of points
+  0 : 0.08891503         # "unlabeled"
+  1 : 0.14264726         # "building"
+  2 : 0.02343034         # "fence"
+  3 : 0.00901471         # "other-structure"
+  4 : 0.00173964         # "person"
+  5 : 0.02069823         # "pole"
+  6 : 0.01072601         # "lane-marking"
+  7 : 0.38840832         # "road"
+  8 : 0.11084663         # "sidewalk"
+  9 : 0.13339569         # "vegetation"
+  10: 0.02595884         # "car"
+  11: 0.04263053         # "wall"
+  12: 0.00158877         # "traffic-sign"
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+learning_map:
+  0 :  0        # "unlabeled"
+  1 :  1        # "building"
+  2 :  2        # "fence"
+  3 :  3        # "other-structure"
+  4 :  4        # "person"
+  5 :  5        # "pole"
+  6 :  6        # "lane-marking" --> mapped by "road" (because of no intensity)
+  7 :  6        # "road"
+  8 :  7        # "sidewalk"
+  9 :  8        # "vegetation"
+  10:  9        # "car"
+  11: 10        # "wall"
+  12: 11        # "traffic-sign"
+learning_map_inv: # inverse of previous map
+  0 :  0        # "unlabeled"
+  1 :  1        # "building"
+  2 :  2        # "fence"
+  3 :  3        # "other-structure"
+  4 :  4        # "person"
+  5 :  5        # "pole"
+  6 :  7        # "road and lane-marking"
+  7 :  8        # "sidewalk"
+  8 :  9        # "vegetation"
+  9 : 10        # "car"
+  10: 11        # "wall"
+  11: 12        # "traffic-sign"
+learning_ignore: # Ignore classes
+  0 : True      # "unlabeled"
+  1 : False     # "building"
+  2 : False     # "fence"
+  3 : False     # "other-structure"
+  4 : False     # "person"
+  5 : False     # "pole"
+  6 : False     # "road and lane-marking"
+  7 : False     # "sidewalk"
+  8 : False     # "vegetation"
+  9 : False     # "car"
+  10: False     # "wall"
+  11: False     # "traffic-sign"
+split: # sequence numbers
+  train:
+    - 0
+#    - 1
+#    - 2
+#    - 3
+#    - 4
+#    - 5
+#    - 6
+#    - 7
+#    - 8
+#    - 9
+#    - 11
+#    - 12
+  valid:
+    - 0
+#    - 10
+  test:
+    - 0
+#    - 13

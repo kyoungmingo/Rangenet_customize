@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="shkim@121.66.114.3:2041" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="shkim@121.66.114.3:2041">
+        <serverdata>
+          <mappings>
+            <mapping deploy="lidar-bonnetal" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
