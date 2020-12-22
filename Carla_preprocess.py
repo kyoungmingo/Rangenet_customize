@@ -227,7 +227,7 @@ for i in np.arange(len(fimage_files)):
     if gt:
         scan.open_label(label_file)
       # map unused classes to used classes (also for projection)
-        #map함수는 Semantic kitti 내장 map 함수를 사용해야함. 아니면, python 기본 내장 map함수로 다음 진행이 이뤄지지 않음.
+      #map함수는 Semantic kitti 내장 map 함수를 사용해야함. 아니면, python 기본 내장 map함수로 다음 진행이 이뤄지지 않음.
         scan.sem_label = map(scan.sem_label, learning_map)
         scan.proj_sem_label = map(scan.proj_sem_label, learning_map)
 
@@ -244,7 +244,6 @@ for i in np.arange(len(fimage_files)):
     path_seq = path_split[-3]
     path_name = path_split[-1]
     plt.imsave('/mnt/kkm/cdataset/gtmask/00/' + path_name, final)
-
 
 
 
@@ -386,6 +385,7 @@ EXTENSIONS_SCAN = ['.pcd']
 # file load
 def is_image(filename):
   return any(filename.endswith(ext) for ext in EXTENSIONS_IMAGE)
+
 
 image_path = os.path.join("/mnt/lyh/sample/anno")
 label_path = os.path.join("/mnt/lyh/pic/bus/gt")

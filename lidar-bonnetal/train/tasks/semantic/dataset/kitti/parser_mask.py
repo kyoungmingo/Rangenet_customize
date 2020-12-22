@@ -137,6 +137,17 @@ class SemanticKitti(Dataset):
     # self.max_points = max_points
     self.gt = gt
     self.aug_f = transforms.Compose([transforms.ToTensor()])
+    # self.aug_f = transforms.Compose([transforms.ToTensor(),
+    #    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+    #
+    # def aug_f(im):
+    #   # put label in xentropy values
+    #   mean_ = im.mean(axis=(0, 1)) / 255
+    #   std_ = im.std(axis=(0, 1)) / 255
+    #   norm_im = transforms.Compose([transforms.ToTensor(),
+    #    transforms.Normalize(mean_, std_)])
+    #   norm_img = norm_im(im)
+    #   return norm_img
 
     # get number of classes (can't be len(self.learning_map) because there
     # are multiple repeated entries, so the number that matters is how many

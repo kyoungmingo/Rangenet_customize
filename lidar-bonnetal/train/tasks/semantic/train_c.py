@@ -10,15 +10,18 @@ import os
 import shutil
 import __init__ as booger
 
-from tasks.semantic.modules.trainer_lane import *
+
+from tasks.semantic.modules.trainer_c import *
+
+# from tasks.semantic.modules.trainer_sq import *
 
 if __name__ == '__main__':
-  parser = argparse.ArgumentParser("./train_lane.py")
+  parser = argparse.ArgumentParser("./train.py")
   parser.add_argument(
       '--dataset', '-d',
       type=str,
-      required=False,
-      default=None,
+      required=True,
+      # required=False,
       help='Dataset to train with. No Default',
   )
   parser.add_argument(
@@ -26,14 +29,17 @@ if __name__ == '__main__':
       type=str,
       # required=True,
       required=False,
-      default='lane_mask/arch_cfg.yaml',
+      default='/mnt/kkm/range_21/arch_cfg.yaml',
       help='Architecture yaml cfg file. See /config/arch for sample. No default!',
   )
   parser.add_argument(
       '--data_cfg', '-dc',
       type=str,
       required=False,
-      default='lane_mask/data_cfg.yaml',
+      # default='mask/data_cfg.yaml',
+      default='/mnt/kkm/range_21/data_cfg.yaml',
+      # default='config/labels/semantic-kitti.yaml',
+      # default='config/labels/data_cfg.yaml',
       help='Classification yaml cfg file. See /config/labels for sample. No default!',
   )
   parser.add_argument(

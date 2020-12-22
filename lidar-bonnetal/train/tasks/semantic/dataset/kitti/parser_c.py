@@ -26,6 +26,16 @@ def is_label(filename):
 def is_image(filename):
   return any(filename.endswith(ext) for ext in EXTENSIONS_IMAGE)
 
+
+def aug_f(im):
+  # put label in xentropy values
+  mean_ = im.mean(axis=(0, 1)) / 255
+  std_ = im.std(axis=(0, 1)) / 255
+  norm_im = transforms.Compose([transforms.ToTensor(),
+   transforms.Normalize(mean_, std_)])
+  norm_img = norm_im(im)
+  return norm_img
+
 class SemanticKitti(Dataset):
 
   def __init__(self, root,    # directory where data is
@@ -55,7 +65,7 @@ class SemanticKitti(Dataset):
     self.sensor_fov_down = sensor["fov_down"]
     self.max_points = max_points
     self.gt = gt
-    self.aug_f = transforms.Compose([transforms.ToTensor()])
+    # self.aug_f = transforms.Compose([transforms.ToTensor()])
 
     # get number of classes (can't be len(self.learning_map) because there
     # are multiple repeated entries, so the number that matters is how many
@@ -98,14 +108,16 @@ class SemanticKitti(Dataset):
       print("parsing seq {}".format(seq))
 
       # get paths for each
-      scan_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
-                               "velodyne")
-      label_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
-                                "labels")
-      image_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
-                                "images")
+      # scan_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
+      #                          "velodyne")
+      # label_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
+      #                           "labels")
+      # image_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
+      #                           "images")
 
-
+      scan_path = os.path.join("/mnt/kkm/cdataset/sequences/velodyne")
+      label_path = os.path.join("/mnt/kkm/cdataset/sequences/labels")
+      image_path = os.path.join("/mnt/kkm/cdataset/for_GAN/finalimage_gen")
 
       # get files
       scan_files = [os.path.join(dp, f) for dp, dn, fn in os.walk(
@@ -188,7 +200,7 @@ class SemanticKitti(Dataset):
     # img4 = torch.from_numpy(img3).float()
 
     #img2[RGB] > normalize
-    img4 = self.aug_f(img2)
+    img4 = aug_f(img2)
 
     # make a tensor of the uncompressed data (with the max num points)
     unproj_n_points = scan.points.shape[0]
