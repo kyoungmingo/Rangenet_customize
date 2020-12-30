@@ -3,6 +3,8 @@ import torch
 
 ARCH = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/arch_cfg.yaml", 'r'))
 DATA = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/data_cfg.yaml", 'r'))
+# ARCH = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/arch_cfg.yaml", 'r'))
+# DATA = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/config/labels/semantic-kitti.yaml", 'r'))
 train_sequences=DATA["split"]["train"]
 valid_sequences=DATA["split"]["valid"]
 test_sequences=None
@@ -18,6 +20,9 @@ gt=True
 shuffle_train=True
 sensor_img_H = sensor["img_prop"]["height"]
 sensor_img_W = sensor["img_prop"]["width"]
+# sensor_img_H = 256
+# sensor_img_W = 256
+
 sensor_img_means = torch.tensor(sensor["img_means"],
                                      dtype=torch.float)
 sensor_img_stds = torch.tensor(sensor["img_stds"],
@@ -74,6 +79,11 @@ for seq in sequences:
                                    "velodyne")
     label_path = os.path.join("/mnt/kkm/cdataset/sequences", seq,
                             "labels")
+    # scan_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/dataset/dataset/sequences", "00",
+    #                                "velodyne")
+    # label_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/dataset/dataset/sequences", "00",
+    #                         "labels")
+
     image_path = os.path.join("/mnt/kkm/cdataset/img", seq)
 
     scan_files = [os.path.join(dp, f) for dp, dn, fn in os.walk(
