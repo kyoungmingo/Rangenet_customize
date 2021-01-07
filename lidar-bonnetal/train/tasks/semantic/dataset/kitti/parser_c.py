@@ -115,9 +115,11 @@ class SemanticKitti(Dataset):
       # image_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/cdataset/dataset/sequences", seq,
       #                           "images")
 
-      scan_path = os.path.join("/mnt/kkm/cdataset/sequences/velodyne")
-      label_path = os.path.join("/mnt/kkm/cdataset/sequences/labels")
-      image_path = os.path.join("/mnt/kkm/cdataset/for_GAN/finalimage_gen")
+      scan_path = os.path.join("/mnt/kkm/cdataset/pointcloud/sequences",seq,
+                               "velodyne")
+      label_path = os.path.join("/mnt/kkm/cdataset/pointcloud/sequences",seq,
+                               "labels")
+      image_path = os.path.join("/mnt/kkm/cdataset/for_GAN",seq)
 
       # get files
       scan_files = [os.path.join(dp, f) for dp, dn, fn in os.walk(

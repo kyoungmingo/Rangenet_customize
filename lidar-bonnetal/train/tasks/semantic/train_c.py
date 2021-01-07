@@ -37,7 +37,7 @@ if __name__ == '__main__':
       type=str,
       required=False,
       # default='mask/data_cfg.yaml',
-      default='/mnt/kkm/range_21/data_cfg.yaml',
+      default='/mnt/kkm/range_21/data_cfg_fs.yaml',
       # default='config/labels/semantic-kitti.yaml',
       # default='config/labels/data_cfg.yaml',
       help='Classification yaml cfg file. See /config/labels for sample. No default!',

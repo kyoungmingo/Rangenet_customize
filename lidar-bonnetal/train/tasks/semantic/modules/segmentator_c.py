@@ -96,13 +96,18 @@ class Segmentator(nn.Module):
     # get weights
     if path is not None:
       # try backbone
+      #초기 RGB 퓨전 training
+      # try:
+      #   w_dict = torch.load(path + "/backbone" + path_append,
+      #                       map_location=lambda storage, loc: storage)
+      #   #range weight stacking for RGB
+      #   wrange = w_dict['conv1.weight'][:, 0, :, :].unsqueeze(1)
+      #   rgb_weight = torch.cat((wrange, wrange, wrange), dim=1)
+      #   w_dict['conv1.weight'] = torch.cat((w_dict['conv1.weight'], rgb_weight), dim=1)
+      #   self.backbone.load_state_dict(w_dict, strict=True)
       try:
         w_dict = torch.load(path + "/backbone" + path_append,
                             map_location=lambda storage, loc: storage)
-        #range weight stacking for RGB
-        wrange = w_dict['conv1.weight'][:, 0, :, :].unsqueeze(1)
-        rgb_weight = torch.cat((wrange, wrange, wrange), dim=1)
-        w_dict['conv1.weight'] = torch.cat((w_dict['conv1.weight'], rgb_weight), dim=1)
         self.backbone.load_state_dict(w_dict, strict=True)
 
         print("Successfully loaded model backbone weights")
