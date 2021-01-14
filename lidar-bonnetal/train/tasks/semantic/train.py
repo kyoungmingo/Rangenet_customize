@@ -28,7 +28,8 @@ if __name__ == '__main__':
       type=str,
       # required=True,
       required=False,
-      default='carla_pretrained/arch_cfg.yaml',
+      #size 조절 돌아가는 size 찾기#
+      default='/mnt/kkm/result/Rangenet21/arch_cfg_size.yaml',
       help='Architecture yaml cfg file. See /config/arch for sample. No default!',
   )
   parser.add_argument(
@@ -36,7 +37,7 @@ if __name__ == '__main__':
       type=str,
       required=False,
       # default='mask/data_cfg.yaml',
-      default='carla_pretrained/data_cfg.yaml',
+      default='/mnt/kkm/result/Rangenet21/data_cfg.yaml',
       # default='config/labels/semantic-kitti.yaml',
       # default='config/labels/data_cfg.yaml',
       help='Classification yaml cfg file. See /config/labels for sample. No default!',

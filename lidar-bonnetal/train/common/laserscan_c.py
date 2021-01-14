@@ -130,7 +130,7 @@ class LaserScan:
     pitch = np.arcsin(scan_z / depth)
 
     # get projections in image coords
-    proj_x = 0.5 * (yaw /(110.0 / 180.0 * np.pi) + 1.0)          # in [0.0, 1.0]
+    proj_x = 0.5 * (yaw /(110.0 / 360.0 * np.pi) + 1.0)          # in [0.0, 1.0]
     proj_y = 1.0 - (pitch + abs(fov_down)) / fov        # in [0.0, 1.0]
 
     # scale to image size using angular resolution

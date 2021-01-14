@@ -10,7 +10,7 @@ import os
 import shutil
 import __init__ as booger
 
-from tasks.semantic.modules.user import *
+from tasks.semantic.modules.user_c import *
 
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ import cv2
 import os
 import numpy as np
 
-from tasks.semantic.modules.segmentator import *
+from tasks.semantic.modules.segmentator_c import *
 from tasks.semantic.postproc.KNN import KNN
 
 
@@ -33,7 +33,7 @@ class User():
     # get the data
     parserModule = imp.load_source("parserModule",
                                    booger.TRAIN_PATH + '/tasks/semantic/dataset/' +
-                                   self.DATA["name"] + '/parser.py')
+                                   self.DATA["name"] + '/parser_c.py')
     self.parser = parserModule.Parser(root=self.datadir,
                                       train_sequences=self.DATA["split"]["train"],
                                       valid_sequences=self.DATA["split"]["valid"],

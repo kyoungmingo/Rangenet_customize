@@ -1,10 +1,10 @@
 import yaml
 import torch
 
-ARCH = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/arch_cfg.yaml", 'r'))
-DATA = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/data_cfg.yaml", 'r'))
 # ARCH = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/arch_cfg.yaml", 'r'))
-# DATA = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/config/labels/semantic-kitti.yaml", 'r'))
+# DATA = yaml.safe_load(open("/mnt/han/lidar-bonnetal/train/tasks/semantic/carla_pretrained/data_cfg.yaml", 'r'))
+ARCH = yaml.safe_load(open("/mnt/kkm/result/Rangenet21/arch_cfg_size.yaml", 'r'))
+DATA = yaml.safe_load(open("/mnt/kkm/result/Rangenet21/data_cfg.yaml", 'r'))
 train_sequences=DATA["split"]["train"]
 valid_sequences=DATA["split"]["valid"]
 test_sequences=None
@@ -62,7 +62,8 @@ scan = SemLaserScan(color_map,
                   fov_up=sensor_fov_up,
                   fov_down=sensor_fov_down)
 
-sequences = [1,2,3,4]
+#0 test, 1 train
+sequences = [0,1]
 
 for seq in sequences:
     # to string
@@ -75,24 +76,25 @@ for seq in sequences:
     flabel_files = []
     fimage_files = []
 
-    scan_path = os.path.join("/mnt/kkm/cdataset/sequences", seq,
+    scan_path = os.path.join("/mnt/kkm/cdataset/pointcloud/sequences", seq,
                                    "velodyne")
-    label_path = os.path.join("/mnt/kkm/cdataset/sequences", seq,
+    label_path = os.path.join("/mnt/kkm/cdataset/pointcloud/sequences", seq,
                             "labels")
     # scan_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/dataset/dataset/sequences", "00",
     #                                "velodyne")
     # label_path = os.path.join("/mnt/han/lidar-bonnetal/train/tasks/semantic/dataset/dataset/sequences", "00",
     #                         "labels")
-
-    image_path = os.path.join("/mnt/kkm/cdataset/img", seq)
+    if seq == '00':
+        image_path = os.path.join("/mnt/kkm/cdataset/for_GAN/test_img")
+    else:
+        image_path = os.path.join("/mnt/kkm/cdataset/for_GAN/train_img")
 
     scan_files = [os.path.join(dp, f) for dp, dn, fn in os.walk(
-              os.path.expanduser(scan_path)) for f in fn if is_scan(f)]
+      os.path.expanduser(scan_path)) for f in fn if is_scan(f)]
     label_files = [os.path.join(dp, f) for dp, dn, fn in os.walk(
       os.path.expanduser(label_path)) for f in fn if is_label(f)]
     image_files = [os.path.join(dp, f) for dp, dn, fn in os.walk(
       os.path.expanduser(image_path)) for f in fn if is_image(f)]
-
 
     scan_files.sort()
     label_files.sort()
@@ -144,5 +146,5 @@ for seq in sequences:
         path_split = path_norm.split(os.sep)
         # path_seq = path_split[-3]
         path_name = path_split[-1]
-        gtroot=os.path.join('/mnt/kkm/cdataset/gtmask',seq,path_name )
+        gtroot=os.path.join('/mnt/kkm/GAN/gtmask',seq,path_name )
         plt.imsave(gtroot, final)

@@ -6,7 +6,7 @@ import os
 import numpy as np
 import torch
 from torch.utils.data import Dataset
-from common.laserscan_c import LaserScan, SemLaserScan
+from common.laserscan import LaserScan, SemLaserScan
 from skimage import transform
 import cv2
 from torchvision import transforms, utils
